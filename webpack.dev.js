@@ -4,18 +4,29 @@ const webpack = require('webpack')
 //installed plugins 
 const htmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+//const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
     mode: 'development',
     entry: './src/client/index.js',
     devtool: 'source-map',
+
+    output: {
+        libraryTarget: 'var',
+        library: 'Client'
+    },
+
     module: {
         rules: [
             {
                 test: '/\.js$/',
                 exclude: /node_modules/,
                 loader: "babel-loader"
+            },
+
+            {
+                test: /\.scss$/,
+                use: ["style-loader", "css-loader", "sass-loader"]
             }
         ]
     },
@@ -26,6 +37,7 @@ module.exports = {
             filename: './index.html'
         }),
 
+
         new CleanWebpackPlugin({
             // Simulate the removal of files
             dry: true,
@@ -34,10 +46,10 @@ module.exports = {
             // Automatically remove all unused webpack assets on rebuild
             cleanStaleWebpackAssets: true,
             protectWebpackAssets: false
-        }),
-
-        new BundleAnalyzerPlugin({
-            analyzerMode: 'server'
         })
+
+        //new BundleAnalyzerPlugin({
+        //    analyzerMode: "server"
+        //})
     ]
 }

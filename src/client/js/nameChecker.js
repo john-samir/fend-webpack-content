@@ -1,4 +1,4 @@
-export function checkForName(inputText) {
+function checkForName(inputText) {
     console.log("::: Running checkForName :::", inputText);
     let names = [
         "Picard",
@@ -13,9 +13,11 @@ export function checkForName(inputText) {
     }
 }
 
+export { checkForName }
 
-export function johnTestFunction() {
-    console.log("inside johnTestFunction")
 
-    alert("Inside johnTestFunction")
-}
+//function johnTestFunction() {
+//    console.log("inside johnTestFunction")
+
+//    alert("Inside johnTestFunction")
+//}

@@ -4,8 +4,9 @@
     "\\dist",
     "\\src",
     "\\src\\client",
-    "\\src\\client\\js"
+    "\\src\\client\\js",
+    "\\src\\client\\views",
+    "\\src\\server"
   ],
-  "SelectedNode": "\\webpack.config.js",
   "PreviewInSolutionExplorer": false
 }
